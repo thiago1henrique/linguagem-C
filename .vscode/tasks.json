@@ -2,14 +2,14 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc arquivo de build ativo",
-            "command": "/usr/bin/gcc",
+            "label": "C/C++: gcc build",
+            "command": "gcc", // Removi o /usr/bin/ para ele buscar no PATH de ambos
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}.exe" // .exe no final funciona no Win e o Linux aceita
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -21,7 +21,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Tarefa gerada pelo Depurador."
+            "detail": "Tarefa universal para GCC"
         }
     ],
     "version": "2.0.0"
